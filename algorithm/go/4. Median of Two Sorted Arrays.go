@@ -61,9 +61,9 @@ func findMedianSortedArrays2(nums1 []int, nums2 []int) float64 {
 	for imin <= imax {
 		i = (imin + imax) / 2
 		j = (m+n+1)/2 - i
-		if i < n && j > 0 && nums1[i] < nums2[j-1] {
+		if j > m || (i < n && j > 0 && nums1[i] < nums2[j-1]) {
 			imin = i + 1
-		} else if i > 0 && j < m && nums1[i-1] > nums2[j] {
+		} else if j < 0 || (i > 0 && j < m && nums1[i-1] > nums2[j]) {
 			imax = i - 1
 		} else {
 			break
