@@ -12,13 +12,14 @@
 
 package main
 
-type ListNode struct {
+type ListNode struct { //single linked list 생성
 	Val  int
-	Next *ListNode
+	Next *ListNode //다음 list struct
 }
 
+//input값을 listNode로 변환
 func initialize(nums []int) *ListNode {
-	header := new(ListNode)
+	header := new(ListNode) //header node(dummy)
 	tmp := header
 	for _, num := range nums {
 		tmp.Next = new(ListNode)
@@ -29,28 +30,32 @@ func initialize(nums []int) *ListNode {
 }
 
 func addTwoNumbers(l1 *ListNode, l2 *ListNode) *ListNode {
-	roundNum := 0
-	res := new(ListNode)
-	tmp := res
+	roundNum := 0        //올림값
+	res := new(ListNode) //최종 결과 list
+	tmp := res           //계산 위한 list
 	for {
 		tmpp := tmp
-		tmp.Next = new(ListNode)
-		tmp = tmp.Next
-		tmp.Val = roundNum
+		tmp.Next = new(ListNode) //Next값 생성
+		tmp = tmp.Next           //계산용 list로 이동
+		tmp.Val = roundNum       //올림값 미리 반영
 		if l1 == nil && l2 == nil {
+			//두 값이 전부 없을 경우: 작업 종료
 			if roundNum == 0 {
-				tmpp.Next = nil
+				tmpp.Next = nil //next값 삭제
 			}
 			break
 		}
 		if l1 != nil {
+			//listNode1 값이 있을 경우 listNode1의 값 연산
 			tmp.Val += l1.Val
 			l1 = l1.Next
 		}
 		if l2 != nil {
+			//listNode2 값이 있을 경우 listNode2의 값 연산
 			tmp.Val += l2.Val
 			l2 = l2.Next
 		}
+		//올림값 설정
 		if tmp.Val >= 10 {
 			roundNum = 1
 			tmp.Val -= 10

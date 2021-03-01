@@ -20,15 +20,17 @@
 package main
 
 func twoSum(nums []int, target int) []int {
-	table := make(map[int]int, 1000)
-	for i := 0; i < len(nums); i++ {
+	table := make(map[int]int, 1000) //int,int map 생성 => key: 입력값, value: index
+	for i := 0; i < len(nums); i++ { //array 내 모든 값에 대해 작업 수행
 		num := nums[i]
-		_, exists := table[num]
+		_, exists := table[num] //map에 nums[i]가 있는지 확인
 		if exists {
-			return []int{table[num], i}
+			//있을 경우: 현재 index값과 map에 저장된 값을 더하면 target값이 된다는 것을 의미
+			return []int{table[num], i} //값을 찾았으므로 결과 리턴
 		}
-		table[num] = i
-		table[target-num] = i
+		//없을 경우
+		table[num] = i        //현재 index 저장
+		table[target-num] = i //target-num 값에 현재 index 저장: key가 target-num인 값을 찾으면 자동으로 인식 가능
 	}
 	return []int{-1, -1}
 }
