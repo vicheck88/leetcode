@@ -12,22 +12,22 @@
 
 package main
 
-type ListNode struct { //single linked list 생성
-	Val  int
-	Next *ListNode //다음 list struct
-}
+// type ListNode struct { //single linked list 생성
+// 	Val  int
+// 	Next *ListNode //다음 list struct
+// }
 
 //input값을 listNode로 변환
-func initialize(nums []int) *ListNode {
-	header := new(ListNode) //header node(dummy)
-	tmp := header
-	for _, num := range nums {
-		tmp.Next = new(ListNode)
-		tmp = tmp.Next
-		tmp.Val = num
-	}
-	return header.Next
-}
+// func initialize(nums []int) *ListNode {
+// 	header := new(ListNode) //header node(dummy)
+// 	tmp := header
+// 	for _, num := range nums {
+// 		tmp.Next = new(ListNode)
+// 		tmp = tmp.Next
+// 		tmp.Val = num
+// 	}
+// 	return header.Next
+// }
 
 func addTwoNumbers(l1 *ListNode, l2 *ListNode) *ListNode {
 	roundNum := 0        //올림값

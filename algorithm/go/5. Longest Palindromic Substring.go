@@ -19,10 +19,7 @@
 package main
 
 import (
-	"bufio"
 	"bytes"
-	"fmt"
-	"os"
 	"strings"
 )
 
@@ -108,16 +105,16 @@ func longestPalindrome(s string) string {
 	return strings.ReplaceAll(res, "|", "")
 }
 
-func main() {
-	file, _ := os.Open("./input.txt")
-	defer file.Close()
-	reader := bufio.NewReader(file)
-	for {
-		line, isPrefix, err := reader.ReadLine()
-		if isPrefix || err != nil {
-			break
-		}
-		str := string(line)
-		fmt.Println(longestPalindrome(str))
-	}
-}
+// func main() {
+// 	file, _ := os.Open("./input.txt")
+// 	defer file.Close()
+// 	reader := bufio.NewReader(file)
+// 	for {
+// 		line, isPrefix, err := reader.ReadLine()
+// 		if isPrefix || err != nil {
+// 			break
+// 		}
+// 		str := string(line)
+// 		fmt.Println(longestPalindrome(str))
+// 	}
+// }

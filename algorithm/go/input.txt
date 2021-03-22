@@ -1,4 +1,2 @@
-bananas
-bb
-a
-abcdcba
+[1]
+1
